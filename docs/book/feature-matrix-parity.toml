@@ -482,6 +482,10 @@ hermes = "none"
 openclaw = "none"
 hermes = "none"
 
+[providers.runcrate]
+openclaw = "none"
+hermes = "none"
+
 [providers.synthetic]
 openclaw = "supported"
 hermes = "none"

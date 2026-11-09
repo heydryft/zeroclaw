@@ -581,12 +581,12 @@ use zeroclaw_config::schema::{
     NvidiaModelProviderConfig, OllamaModelProviderConfig, OpenAIModelProviderConfig,
     OpenRouterModelProviderConfig, OpencodeModelProviderConfig, OsaurusModelProviderConfig,
     OvhModelProviderConfig, PerplexityModelProviderConfig, QianfanModelProviderConfig,
-    QwenModelProviderConfig, RekaModelProviderConfig, SambanovaModelProviderConfig,
-    SglangModelProviderConfig, SiliconflowModelProviderConfig, StepfunModelProviderConfig,
-    SyntheticModelProviderConfig, TelnyxModelProviderConfig, TogetherModelProviderConfig,
-    UpstageModelProviderConfig, VeniceModelProviderConfig, VercelModelProviderConfig,
-    VllmModelProviderConfig, XaiModelProviderConfig, YiModelProviderConfig, ZaiModelProviderConfig,
-    ZerorouterModelProviderConfig,
+    QwenModelProviderConfig, RekaModelProviderConfig, RuncrateModelProviderConfig,
+    SambanovaModelProviderConfig, SglangModelProviderConfig, SiliconflowModelProviderConfig,
+    StepfunModelProviderConfig, SyntheticModelProviderConfig, TelnyxModelProviderConfig,
+    TogetherModelProviderConfig, UpstageModelProviderConfig, VeniceModelProviderConfig,
+    VercelModelProviderConfig, VllmModelProviderConfig, XaiModelProviderConfig,
+    YiModelProviderConfig, ZaiModelProviderConfig, ZerorouterModelProviderConfig,
 };
 
 #[must_use]
@@ -898,6 +898,11 @@ impl CompatFamilySpec for LambdaAiModelProviderConfig {
 impl CompatFamilySpec for InceptionModelProviderConfig {
     const DISPLAY: &'static str = "Inception Labs";
     const DEFAULT_URL: &'static str = "https://api.inceptionlabs.ai/v1";
+    const AUTH: AuthStyle = AuthStyle::Bearer;
+}
+impl CompatFamilySpec for RuncrateModelProviderConfig {
+    const DISPLAY: &'static str = "Runcrate";
+    const DEFAULT_URL: &'static str = "https://api.runcrate.ai/v1";
     const AUTH: AuthStyle = AuthStyle::Bearer;
 }
 impl CompatFamilySpec for StepfunModelProviderConfig {

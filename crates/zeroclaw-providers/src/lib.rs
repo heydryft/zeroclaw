@@ -2429,6 +2429,7 @@ pub fn list_model_providers() -> Vec<ModelProviderInfo> {
             ("arcee", "Arcee AI", false),
             ("lambda_ai", "Lambda AI", false),
             ("inception", "Inception Labs (Mercury)", false),
+            ("runcrate", "Runcrate", false),
             ("custom", "Custom (OpenAI-compatible)", false),
         ],
     );
@@ -3957,6 +3958,11 @@ mod tests {
     }
 
     #[test]
+    fn factory_runcrate() {
+        assert!(create_model_provider("runcrate", Some("runcrate-test")).is_ok());
+    }
+
+    #[test]
     fn default_url_matches_compat_spec_for_new_providers() {
         assert_eq!(
             default_model_provider_url("groq"),
@@ -4005,6 +4011,10 @@ mod tests {
         assert_eq!(
             default_model_provider_url("inception"),
             Some("https://api.inceptionlabs.ai/v1")
+        );
+        assert_eq!(
+            default_model_provider_url("runcrate"),
+            Some("https://api.runcrate.ai/v1")
         );
         assert_eq!(
             default_model_provider_url("crusoe"),

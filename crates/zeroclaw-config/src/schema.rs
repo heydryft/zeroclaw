@@ -3508,6 +3508,31 @@ pub struct InceptionModelProviderConfig {
     pub base: ModelProviderConfig,
 }
 
+// ── Runcrate ──
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize, Default)]
+#[cfg_attr(feature = "schema-export", derive(schemars::JsonSchema))]
+#[serde(rename_all = "snake_case")]
+pub enum RuncrateEndpoint {
+    #[default]
+    Default,
+}
+impl ModelEndpoint for RuncrateEndpoint {
+    fn uri(&self) -> &'static str {
+        match self {
+            Self::Default => "https://api.runcrate.ai/v1",
+        }
+    }
+}
+#[derive(Debug, Clone, Default, Serialize, Deserialize, Configurable)]
+#[cfg_attr(feature = "schema-export", derive(schemars::JsonSchema))]
+#[prefix = "providers.models.runcrate"]
+pub struct RuncrateModelProviderConfig {
+    #[nested]
+    #[serde(flatten)]
+    pub base: ModelProviderConfig,
+}
+
 // ── Synthetic ──
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize, Default)]
@@ -3825,6 +3850,7 @@ impl_default_family_endpoint! {
     ArceeModelProviderConfig,
     LambdaAiModelProviderConfig,
     InceptionModelProviderConfig,
+    RuncrateModelProviderConfig,
     SyntheticModelProviderConfig,
     OpencodeModelProviderConfig,
     KiloCliModelProviderConfig,

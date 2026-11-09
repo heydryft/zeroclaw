@@ -478,7 +478,7 @@ providers use their local command.
 
 For a worked example per family, see [Configuration](./configuration.md). If your vendor isn't listed, use the `custom` slot ([Custom providers](./custom.md)).
 
-### Worked examples: Morph, GitHub Models, Upstage, Featherless, Arcee, Lambda AI, Inception
+### Worked examples: Morph, GitHub Models, Upstage, Featherless, Arcee, Lambda AI, Inception, Runcrate
 
 Each of these is a standard OpenAI-compatible slot: set `model` and `api_key`, leave
 `uri` off (the typed endpoint supplies it). None of them ship a public model index,
@@ -513,6 +513,11 @@ Hugging Face repo IDs (e.g. `meta-llama/Meta-Llama-3.1-8B-Instruct`). Key from
 **Inception**: slot `inception`. The Mercury diffusion-LLM family (`mercury-coder` and
 the newer `mercury-2`). Key from the
 [Inception platform](https://platform.inceptionlabs.ai).
+
+**Runcrate**: slot `runcrate`. An AI cloud serving open models behind an
+OpenAI-compatible API at `https://api.runcrate.ai/v1`. Model IDs are
+publisher-prefixed (e.g. `deepseek-ai/DeepSeek-V4.1-Flash`); the full list is at
+`GET https://api.runcrate.ai/v1/models`. Key from [runcrate.ai](https://runcrate.ai).
 
 **Atlas Cloud**: slot `atlascloud`. OpenAI-compatible endpoint
 `https://api.atlascloud.ai/v1` with bearer-token auth. Use the canonical
